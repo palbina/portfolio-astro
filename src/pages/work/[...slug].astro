@@ -13,6 +13,14 @@ import K8sArchitectureVisualizer from '../../components/K8sArchitectureVisualize
 import PodLifecycleSimulator from '../../components/PodLifecycleSimulator';
 import ServiceMeshVisualizer from '../../components/ServiceMeshVisualizer';
 import MetricsDashboardSimulator from '../../components/MetricsDashboardSimulator';
+import ZeroTrustSimulator from '../../components/ZeroTrustSimulator';
+import DatabaseHASimulator from '../../components/DatabaseHASimulator';
+import EdgeNetworkingSimulator from '../../components/EdgeNetworkingSimulator';
+import DisasterRecoverySimulator from '../../components/DisasterRecoverySimulator';
+import TalosOSSimulator from '../../components/TalosOSSimulator';
+import LonghornStorageSimulator from '../../components/LonghornStorageSimulator';
+import ForgejoActionsSimulator from '../../components/ForgejoActionsSimulator';
+import RAGSearchSimulator from '../../components/RAGSearchSimulator';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -101,6 +109,94 @@ const { Content } = await render(entry);
 							<div class="islands-grid">
 								<div class="island-card">
 									<MetricsDashboardSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/zero-trust-security' || entry.id === 'es/zero-trust-security') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<ZeroTrustSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/database-ha' || entry.id === 'es/database-ha') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<DatabaseHASimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/ingress-networking' || entry.id === 'es/ingress-networking') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<EdgeNetworkingSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/talos-linux' || entry.id === 'es/talos-linux') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<TalosOSSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/storage-longhorn' || entry.id === 'es/storage-longhorn') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<LonghornStorageSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/forgejo-actions' || entry.id === 'es/forgejo-actions') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<ForgejoActionsSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/rag-ai-system' || entry.id === 'es/rag-ai-system') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<RAGSearchSimulator client:visible />
+								</div>
+							</div>
+						</div>
+					)}
+
+					{(entry.id === 'en/disaster-recovery' || entry.id === 'es/disaster-recovery') && (
+						<div class="islands-demo">
+							<h3>Interactive Demos</h3>
+							<div class="islands-grid">
+								<div class="island-card">
+									<DisasterRecoverySimulator client:visible />
 								</div>
 							</div>
 						</div>
