@@ -3,6 +3,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceTimeline from '../components/ExperienceTimeline.tsx';
+import TechStackCanvas from '../components/TechStackCanvas.tsx';
 ---
 
 <BaseLayout title="About | Peter" description="About Peter's DevOps Journey">
@@ -37,9 +38,12 @@ import ExperienceTimeline from '../components/ExperienceTimeline.tsx';
 				</div>
 			</section>
 			<section>
-				<h2 class="section-title">Skills</h2>
+				<h2 class="section-title">Skills & Technlogies</h2>
 				<div class="content">
-					<p>Kubernetes, Docker, Linux, Ansible, Terraform, AWS, Azure, CI/CD (Jenkins, GitHub Actions, ArgoCD), Python, Go, Bash.</p>
+					<p>Showcasing my current technological ecosystem built for modern Cloud Native standards.</p>
+					<div class="island-card" style="margin-top: 2rem;">
+						<TechStackCanvas client:load />
+					</div>
 				</div>
 			</section>
 		</main>
