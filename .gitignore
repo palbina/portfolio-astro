@@ -30,3 +30,6 @@ pnpm-debug.log*
 .agents/
 .ai-context/
 CLAUDE.md
+design-system/
+skills-lock.json
+Astro-*
