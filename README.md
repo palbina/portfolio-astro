@@ -1,68 +1,88 @@
-# Peter · DevOps Engineer Portfolio
+# 🚀 Peter · Interactive DevOps Portfolio & Documentation Hub
 
-A modern, static portfolio showcasing DevOps engineering capabilities, built with [Astro](https://astro.build).
+> A next-generation, interactive portfolio designed to showcase DevOps engineering capabilities. Built with Astro Islands, it features live, browser-based simulators of complex infrastructure concepts wrapped in a modern, glassmorphic UI.
 
-## Features
+![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)
+![Preact](https://img.shields.io/badge/Preact-10.x-673AB7?style=for-the-badge&logo=preact&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
-- 🚀 Static Site Generation (SSG)
-- 🌙 Dark/Light theme toggle
-- 📱 Responsive design
-- ⚡ Optimized performance
-- 🎨 Custom CSS with design tokens
+## ✨ Key Features
 
-## Tech Stack
+This portfolio goes beyond static text by implementing **functional infrastructure simulators** directly in the browser:
 
-| Category | Technologies |
-|----------|-------------|
-| Framework | Astro 5.x |
-| Language | TypeScript |
-| Styling | CSS (Design Tokens, CSS Variables) |
-| Content | Astro Content Collections |
-| Deployment | Static hosting ready |
+*   🖥️ **Interactive UNIX Terminal:** A fully functional terminal emulator built into the Hero section. Supports real commands (`kubectl`, `docker`, `terraform`), auto-completion `[TAB]`, command history, and custom DevOps easter eggs.
+*   ⚙️ **DevOps Simulators (Preact Islands):** +12 interactive simulators that visually demonstrate complex concepts:
+    *   **Argo Rollouts:** Simulates Canary, Blue-Green, and Rolling deployment strategies with realistic `kubectl` terminal logs and Kubelet lifecycle events.
+    *   **GitOps Flow:** An action graph representing proper pipeline stages with synchronous propagation delays (Cold Starts, Image Builds).
+    *   *And more:* Pod Lifecycle, Service Mesh (Istio), Zero Trust Security, Database HA, etc.
+*   🏝️ **Astro Islands Architecture:** Extreme performance achieved by hydrating JavaScript *only* where necessary (Zero-JS by default).
+*   🌍 **Native i18n (EN/ES):** Deep internationalization using **Nano Stores** (`@nanostores/preact`). State is shared across isolated Preact islands without reloading the page.
+*   🧊 **Glassmorphic Design System:** Premium UI/UX featuring custom CSS variables, backdrop filters, and a responsive dark/light theme.
+*   🧊 **3D Integration:** Asynchronous rendering of 3D Spline models (`@splinetool/react-spline`) that respect Astro's SSR capabilities.
 
-## Projects Showcase
+## 🏗️ Architecture & Tech Stack
 
-- **Kubernetes Cluster** - High-availability cluster infrastructure
-- **Istio Ambient Mesh** - Service mesh implementation
-- **CI/CD Pipeline** - Automated deployment workflows
-- **Observability Stack** - Monitoring and logging infrastructure
+The project leverages a hybrid SSG/SSR approach to deliver maximum performance while keeping complex interactivity isolated.
 
-## Getting Started
+| Category | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Framework** | [Astro 5](https://astro.build/) | Core framework, routing, and static generation. |
+| **Interactive UI** | [Preact](https://preactjs.com/) | Lightweight rendering for heavy simulators and terminal. |
+| **3D Rendering** | React | Lazy-loaded exclusively for Spline 3D integrations. |
+| **State Management** | Nano Stores | Cross-island state sharing (e.g., Language Toggle). |
+| **Content** | Astro Collections | Zod-validated Markdown for portfolio entries. |
+| **Styling** | Custom CSS | Pure CSS with Design Tokens (No Tailwind). |
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/     # Preact/React Islands (Terminal, Simulators, 3D)
+├── content/work/   # Portfolio projects in Markdown (EN/ES)
+├── i18n/           # Translation dictionaries and routing utils
+├── store/          # Nano Stores state management (languageStore.ts)
+├── pages/          # Astro dynamic routes and static pages
+└── styles/         # Global CSS and Design Tokens (global.css)
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or pnpm
+
+### Installation
 
 ```bash
-# Install dependencies
+# 1. Clone the repository
+git clone https://github.com/yourusername/portfolio-astro.git
+
+# 2. Install dependencies
 npm install
 
-# Start development server
+# 3. Start the development server
 npm run dev
+```
 
+Visit `http://localhost:4321` to view the interactive portfolio.
+
+### Build & Production
+
+```bash
 # Build for production
 npm run build
 
-# Preview production build
+# Preview the production build locally
 npm run preview
 ```
 
-## Project Structure
+## 🛠️ DevOps Skills Highlighted in this Portfolio
 
-```
-src/
-├── components/     # Reusable UI components
-├── content/        # Markdown content (projects)
-├── layouts/        # Page layouts
-├── pages/          # Route pages
-└── styles/         # Global styles
-```
-
-## Skills Highlighted
-
-- **Container Orchestration:** Kubernetes, Docker
-- **Cloud Platforms:** AWS, Azure
-- **Infrastructure as Code:** Terraform, Ansible
-- **CI/CD:** Jenkins, GitHub Actions, ArgoCD
-- **Observability:** Prometheus, Grafana, ELK Stack
-- **Languages:** Python, Go, Bash
+*   **Container Orchestration:** Kubernetes, Docker, Talos OS
+*   **Progressive Delivery:** Argo Rollouts, ArgoCD
+*   **Cloud & Infrastructure:** Terraform, GitOps
+*   **Networking & Security:** Istio Ambient Mesh, Zero Trust
+*   **Observability:** Prometheus, Grafana
 
 ---
-
-Built with ❤️ using [Astro](https://astro.build)
+*Designed & Developed by Peter.*
