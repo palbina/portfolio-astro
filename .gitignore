@@ -27,7 +27,6 @@ pnpm-debug.log*
 .vscode/
 
 # AI agent configs
-.agents/
 .ai-context/
 CLAUDE.md
 design-system/
