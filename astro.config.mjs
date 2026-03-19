@@ -4,7 +4,7 @@ import preact from '@astrojs/preact';
 import react from '@astrojs/react';
 
 // https://astro.build/config
-export default defineConfig({
+export default defineConfig({\n  vite: {\n    plugins: [],\n  },
   integrations: [
     preact({
       include: ['**/components/**/*.tsx', '**/components/**/*.jsx'],
@@ -14,7 +14,7 @@ export default defineConfig({
       include: ['**/SplineIsland.tsx'],
     })
   ],
-  i18n: {
+  },\n  experimental: {\n    viewTransitions: true,\n  },\n  i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
     routing: {
