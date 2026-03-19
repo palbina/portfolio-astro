@@ -4,7 +4,7 @@ import preact from '@astrojs/preact';
 import react from '@astrojs/react';
 
 // https://astro.build/config
-export default defineConfig({
+export default defineConfig({\n  experimental: {\n    viewTransitions: true,\n  },
   integrations: [
     preact({
       include: ['**/components/**/*.tsx', '**/components/**/*.jsx'],
