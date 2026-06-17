@@ -18,11 +18,10 @@ jobs:
               insecure = true
       - name: Log in to Local Zot Registry
         run: |
-          ZOT_IP=$(getent hosts zot-registry.zot-registry.svc.cluster.local | awk '{print $1}')
-          echo "${{ secrets.ZOT_PASSWORD }}" | docker login $ZOT_IP:5000 --username cleanup --password-stdin
+          echo "${{ secrets.ZOT_PASSWORD }}" | docker login registry-taloslab.subetupaginacp.com:5000 --username cleanup --password-stdin
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: registry-taloslab.subetupaginacp.com/palbina/portfolio-astro:latest
+          tags: registry-taloslab.subetupaginacp.com:5000/palbina/portfolio-astro:latest
