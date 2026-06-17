@@ -13,15 +13,25 @@ jobs:
         with:
           driver-opts: network=host
           buildkitd-config-inline: |
-            [registry."10.99.141.31:5000"]
+            [registry."registry-taloslab.subetupaginacp.com"]
               http = true
               insecure = true
-      - name: Log in to Local Zot Registry
+      - name: Configure Zot registry credentials
         run: |
-          echo "${{ secrets.ZOT_PASSWORD }}" | docker login http://10.99.141.31:5000 --username cleanup --password-stdin
+          mkdir -p ~/.docker
+          AUTH=$(echo -n "cleanup:${{ secrets.ZOT_PASSWORD }}" | base64 -w0)
+          cat > ~/.docker/config.json << EOF
+          {
+            "auths": {
+              "registry-taloslab.subetupaginacp.com:5000": {
+                "auth": "$AUTH"
+              }
+            }
+          }
+          EOF
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: 10.99.141.31:5000/palbina/portfolio-astro:latest
+          tags: registry-taloslab.subetupaginacp.com:5000/palbina/portfolio-astro:latest
