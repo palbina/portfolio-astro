@@ -13,7 +13,7 @@ jobs:
         with:
           driver-opts: network=host
           buildkitd-config-inline: |
-            [registry."registry-taloslab.subetupaginacp.com"]
+            [registry."registry-taloslab.subetupaginacp.com:5000"]
               http = true
               insecure = true
       - name: Configure Zot registry credentials
