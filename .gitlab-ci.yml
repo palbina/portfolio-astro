@@ -22,6 +22,8 @@ kaniko-build:
     - mkdir -p /kaniko/.docker
     - echo "$ZOT_DOCKER_CONFIG" | base64 -d > /kaniko/.docker/config.json 2>/dev/null || echo '{}' > /kaniko/.docker/config.json
     - export HOME=/kaniko
+    # Reduce MTU to avoid ECONNRESET with Cilium VXLAN encapsulation
+    - ip link set dev eth0 mtu 1400 2>/dev/null || true
   script:
     - /kaniko/executor
       --context $CI_PROJECT_DIR
