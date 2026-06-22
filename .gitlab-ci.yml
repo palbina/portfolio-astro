@@ -1,0 +1,34 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_TAG
+
+stages:
+  - build
+
+variables:
+  ZOT_REGISTRY: registry-taloslab.subetupaginacp.com
+  IMAGE: $ZOT_REGISTRY/palbina/portfolio-astro
+  KANIKO_IMAGE: $ZOT_REGISTRY:5000/palbina/portfolio-astro
+
+kaniko-build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  tags: [kubernetes]
+  before_script:
+    - mkdir -p /kaniko/.docker
+    - echo "$ZOT_DOCKER_CONFIG" | base64 -d > /kaniko/.docker/config.json 2>/dev/null || echo '{}' > /kaniko/.docker/config.json
+    - export HOME=/kaniko
+  script:
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --destination $KANIKO_IMAGE:$CI_COMMIT_SHORT_SHA
+      --destination $KANIKO_IMAGE:latest
+      --skip-tls-verify
+      --insecure
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
